@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Linq.Expressions;
+using System.Reflection.Metadata.Ecma335;
 
 Console.WriteLine("Welcome to the sample calculator");
 int option = 0;
@@ -8,8 +9,7 @@ while (option != -1)
 {
     try
     {
-        Console.Write("Select from option(-1 to exit)");
-        Console.WriteLine("\n 1.Add \n 2.Sub \n 3.Mul \n 4.Div \n 5.Mod \n 6.Fibonacci ");
+        FunctionMenu();
         Console.Write("Enter the option :");
         option = Convert.ToInt32(Console.ReadLine());
         if (option == -1)
@@ -27,7 +27,7 @@ while (option != -1)
             switch (option)
             {
                 case 1:
-                    value = num1 + num2;
+                    value = Addition(num1,num2);
                     Console.WriteLine($"Addtion of values is {value}");
                     break;
                 case 2:
@@ -87,3 +87,14 @@ while (option != -1)
     }
 }
 Console.WriteLine("Thanks for using the calculator");
+
+//Methods or Fucntions
+int Addition(int num1,int num2)
+{
+    return num1 + num2;
+}
+void FunctionMenu()
+{
+    Console.Write("Select from option(-1 to exit)");
+    Console.WriteLine("\n 1.Add \n 2.Sub \n 3.Mul \n 4.Div \n 5.Mod \n 6.Fibonacci ");
+}
